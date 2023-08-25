@@ -1,0 +1,4 @@
+##BEFORE ANYTHING DWNLOAD THE FOLLOWING FILE AND PLACE IT IN THE SAME DICTORY AS THE PYTHON SCRIPT : https://drive.google.com/file/d/18X6ImjSPyJxehF6ItQzYtapck65CkfQO/view?usp=sharing
+### OriginMC
+
+
