@@ -15,4 +15,4 @@ To execute this app, you will need python 3.11 (or newer) and the folowing modul
 Before launching anything place this file in the same folder : https://drive.google.com/file/d/18X6ImjSPyJxehF6ItQzYtapck65CkfQO/view?usp=sharing
 
 ## 🚀Usage
-Once theses prerequisite are done, just exectute the file named "app.py"
+Once theses prerequisite are done, just execute the file named "app.py"
