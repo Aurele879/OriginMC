@@ -1,7 +1,7 @@
-## 🟠OriginMC
+## 🗡️OriginMC
 A Minecraft modpack with integrated launcher and game files, using python, html, css and JavaScript.
 
-## ⛏️Installation
+## ⚙️Installation
 To execute this app, you will need python 3.11 (or newer) and the folowing modules :
 1) os
 2) subprocess
