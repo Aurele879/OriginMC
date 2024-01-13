@@ -1,5 +1,5 @@
 ## 🗡️OriginMC
-A Minecraft modpack with integrated launcher and game files, using python, html, css and JavaScript.
+A Minecraft modpack with integrated launcher and game files, using python.
 
 ## ⚙️Installation
 To execute this app, extract the zip folder un release section, execute the file named app.exe and enjoy !
