@@ -14,12 +14,12 @@ from tkinter import PhotoImage
 from tkinter import Label
 from subprocess import call
 
-code = base64.b64encode(b"""
+#code = base64.b64encode(b"""
 
 #Game variables
 config = configparser.ConfigParser()
 config_file = config.read('config.ini')
-java_path = "javaw"
+java_path = "jdk17/bin/javaw"
 version = "1.19.2-forge-43.2.21"
 game_files = "game_data.zip"
 minecraft_directory = "data/.minecraft" 
@@ -48,7 +48,7 @@ def settings():
 
 def download_files():
     print("//DOWNLOADING FILES//")
-    url = 'https://www.dropbox.com/scl/fi/ehrpukjgurqgscrb7u7my/game_data.zip?rlkey=3muz62poecwbynngvzgx0m90h&dl=1' 
+    url = 'https://www.dropbox.com/scl/fi/oo23oaed2bcbrxwh3xjum/game_data.zip?rlkey=cebnpcpx7hliy03j5lqj10in4&dl=1' 
     r = requests.get(url, allow_redirects=True)
     with open(game_files, 'wb') as f:
         f.write(r.content)
@@ -115,8 +115,5 @@ close_button.place(y=500, x=755)
 #Showing window
 app.mainloop()
 
-
- 
-
-""")
-exec(base64.b64decode(code))
+#""")
+#exec(base64.b64decode(code))
