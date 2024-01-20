@@ -13,16 +13,18 @@ from tkinter import messagebox
 from tkinter import PhotoImage
 from tkinter import Label
 from subprocess import call
+from cryptography.fernet import Fernet
+import base64
 
-#code = base64.b64encode(b"""
-
+code = b"""
 #Game variables
 config = configparser.ConfigParser()
 config_file = config.read('config.ini')
 java_path = "jdk17/bin/javaw"
-version = "1.19.2-forge-43.2.21"
+version = "fabric-loader-0.15.6-1.20.1"
 game_files = "game_data.zip"
-minecraft_directory = "data/.minecraft" 
+minecraft_directory = ".originmc"
+
 
 #Functions
 def disable_ui():
@@ -33,9 +35,12 @@ def disable_ui():
     progressbar.configure(mode="indeterminate")
     progressbar.place(y=550, x=450)
     progressbar.start()
+    info_txt = customtkinter.CTkLabel(app, text="Downloading files, this can take a long time...", font=("Helvetica", 14, "bold"), width=380, height=2)
+    info_txt.configure(fg_color="#161616")
+    info_txt.place(y=565, x=450)
 
 def settings():
-    dialog = customtkinter.CTkInputDialog(text=("Choose a new nickname:"), title="Settings", button_fg_color="#ff6600", button_hover_color="#904a00", fg_color="#191919")
+    dialog = customtkinter.CTkInputDialog(text=("Choose a new nickname:"), title="Preferences", button_fg_color="#ff6600", button_hover_color="#904a00", fg_color="#191919")
     new_nick = dialog.get_input()
     try:
         if new_nick != "":
@@ -44,11 +49,11 @@ def settings():
             with open('config.ini', 'w') as configfile:
                 config.write(configfile)
     except TypeError:
-        None
+        print("//ERROR//")
 
 def download_files():
     print("//DOWNLOADING FILES//")
-    url = 'https://www.dropbox.com/scl/fi/oo23oaed2bcbrxwh3xjum/game_data.zip?rlkey=cebnpcpx7hliy03j5lqj10in4&dl=1' 
+    url = "https://www.dropbox.com/scl/fi/8gtsofphw6hxneook41yd/game_data.zip?rlkey=x9l6cpqsmcygf4hftvouko2wi&dl=1"
     r = requests.get(url, allow_redirects=True)
     with open(game_files, 'wb') as f:
         f.write(r.content)
@@ -94,6 +99,7 @@ app.title("OriginMC Launcher")
 app.configure(fg_color="#161616")
 app.iconbitmap("assets/logo.ico")
 app.resizable(False, False)
+app.grab_set()
 
 #Images and background
 bg_img= PhotoImage(file = "assets/background_low.png")
@@ -115,5 +121,12 @@ close_button.place(y=500, x=755)
 #Showing window
 app.mainloop()
 
-#""")
-#exec(base64.b64decode(code))
+"""
+
+key = Fernet.generate_key()
+encryption_type = Fernet(key)
+encrypted_message = encryption_type.encrypt(code)
+
+decrypted_message = encryption_type.decrypt(encrypted_message)
+
+exec(decrypted_message)
